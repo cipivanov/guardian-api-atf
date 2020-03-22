@@ -8,5 +8,5 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.openplatform.atf.stepdefs")
-public class CukesRunner {
+public class CukesRunnerIT {
 }
