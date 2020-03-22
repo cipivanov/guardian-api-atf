@@ -4,18 +4,18 @@ import io.restassured.response.Response;
 import org.springframework.stereotype.Component;
 
 @Component
-public final class SearchResult {
+public final class SearchResponse {
 
     private Response response;
-    private SearchResultBody searchResultBody;
+    private SearchResponseBody searchResponseBody;
 
     public void setResponse(Response response) {
         this.response = response;
-        searchResultBody = response.as(SearchResultBody.class);
+        searchResponseBody = response.as(SearchResponseBody.class);
     }
 
-    public SearchResultBody getSearchResultBody() {
-        return searchResultBody;
+    public SearchResponseBody getSearchResponseBody() {
+        return searchResponseBody;
     }
 
     public Response getResponse() {
