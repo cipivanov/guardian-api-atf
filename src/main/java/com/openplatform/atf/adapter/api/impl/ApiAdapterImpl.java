@@ -13,10 +13,12 @@ public class ApiAdapterImpl implements ApiAdapter<Response> {
     private final static Logger LOGGER = LoggerFactory.getLogger(ApiAdapterImpl.class.getName());
 
     @Override
-    public Response sendRequest(SearchRequest searchSearchRequest) {
+    public Response sendRequest(SearchRequest searchRequest) {
         LOGGER.info("Sending {} search request to {} endpoint: ",
-                searchSearchRequest.getSearchType().name(), searchSearchRequest.getSearchType().getEndpoint());
+                searchRequest.getSearchType().name(),
+                searchRequest.getSearchType().getEndpoint());
 
-        return searchSearchRequest.getRequestSpecification().log().all().get().then().log().all().extract().response();
+        return searchRequest.getRequestSpecification().log().all()
+                .get().then().log().all().extract().response();
     }
 }

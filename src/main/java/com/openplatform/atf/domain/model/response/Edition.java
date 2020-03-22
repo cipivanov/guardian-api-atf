@@ -3,10 +3,10 @@ package com.openplatform.atf.domain.model.response;
 public class Edition {
 
     private String id;
-    private String webTitle;
+    private String code;
     private String webUrl;
     private String apiUrl;
-    private String code;
+    private String webTitle;
 
     public String getId() {
         return id;
@@ -16,12 +16,12 @@ public class Edition {
         this.id = id;
     }
 
-    public String getWebTitle() {
-        return webTitle;
+    public String getCode() {
+        return code;
     }
 
-    public void setWebTitle(String webTitle) {
-        this.webTitle = webTitle;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getWebUrl() {
@@ -40,11 +40,11 @@ public class Edition {
         this.apiUrl = apiUrl;
     }
 
-    public String getCode() {
-        return code;
+    public String getWebTitle() {
+        return webTitle;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setWebTitle(String webTitle) {
+        this.webTitle = webTitle;
     }
 }

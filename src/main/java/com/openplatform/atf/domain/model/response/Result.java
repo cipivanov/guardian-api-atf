@@ -6,15 +6,15 @@ public class Result {
 
     private String id;
     private String type;
+    private String apiUrl;
+    private String webUrl;
+    private Fields fields;
+    private String webTitle;
+    private Boolean isHosted;
     private String sectionId;
     private String sectionName;
+    private List<Edition> editions;
     private String webPublicationDate;
-    private String webTitle;
-    private String webUrl;
-    private String apiUrl;
-    private Boolean isHosted;
-    private List<Edition> editions = null;
-    private Fields fields;
 
     public String getId() {
         return id;
@@ -30,6 +30,46 @@ public class Result {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getApiUrl() {
+        return apiUrl;
+    }
+
+    public void setApiUrl(String apiUrl) {
+        this.apiUrl = apiUrl;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
+    }
+
+    public Fields getFields() {
+        return fields;
+    }
+
+    public void setFields(Fields fields) {
+        this.fields = fields;
+    }
+
+    public String getWebTitle() {
+        return webTitle;
+    }
+
+    public void setWebTitle(String webTitle) {
+        this.webTitle = webTitle;
+    }
+
+    public Boolean getHosted() {
+        return isHosted;
+    }
+
+    public void setHosted(Boolean hosted) {
+        isHosted = hosted;
     }
 
     public String getSectionId() {
@@ -48,54 +88,6 @@ public class Result {
         this.sectionName = sectionName;
     }
 
-    public String getWebPublicationDate() {
-        return webPublicationDate;
-    }
-
-    public void setWebPublicationDate(String webPublicationDate) {
-        this.webPublicationDate = webPublicationDate;
-    }
-
-    public String getWebTitle() {
-        return webTitle;
-    }
-
-    public void setWebTitle(String webTitle) {
-        this.webTitle = webTitle;
-    }
-
-    public String getWebUrl() {
-        return webUrl;
-    }
-
-    public void setWebUrl(String webUrl) {
-        this.webUrl = webUrl;
-    }
-
-    public String getApiUrl() {
-        return apiUrl;
-    }
-
-    public void setApiUrl(String apiUrl) {
-        this.apiUrl = apiUrl;
-    }
-
-    public Boolean getIsHosted() {
-        return isHosted;
-    }
-
-    public void setIsHosted(Boolean isHosted) {
-        this.isHosted = isHosted;
-    }
-
-    public Boolean getHosted() {
-        return isHosted;
-    }
-
-    public void setHosted(Boolean hosted) {
-        isHosted = hosted;
-    }
-
     public List<Edition> getEditions() {
         return editions;
     }
@@ -104,11 +96,11 @@ public class Result {
         this.editions = editions;
     }
 
-    public Fields getFields() {
-        return fields;
+    public String getWebPublicationDate() {
+        return webPublicationDate;
     }
 
-    public void setFields(Fields fields) {
-        this.fields = fields;
+    public void setWebPublicationDate(String webPublicationDate) {
+        this.webPublicationDate = webPublicationDate;
     }
 }

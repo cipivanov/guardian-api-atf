@@ -11,6 +11,7 @@ public final class EvalUtils {
     }
 
     public static Boolean evaluate(final List<String> values, final EvaluationType type, final String query) {
+        // not very Spring-like, I know
         TextualBooleanEvaluator textualBooleanEvaluator = new TextualBooleanEvaluator(type);
 
         return values.stream().allMatch(bodyText -> textualBooleanEvaluator.evaluate(query, bodyText));

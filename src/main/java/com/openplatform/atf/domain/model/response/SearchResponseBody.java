@@ -11,5 +11,4 @@ public class SearchResponseBody {
     public void setResponse(Response response) {
         this.response = response;
     }
-
 }

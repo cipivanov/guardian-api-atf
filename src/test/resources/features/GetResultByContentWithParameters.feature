@@ -1,5 +1,8 @@
 Feature: Supply response when content search performed
 
+# Test based on the validation of content make the assumption which for some cases result in assertion failure.
+# Since not always the keyword is contained in teh article/blog/live itself
+
   Scenario: A client searches all content on Open Platform Guardian API
     Given a client has a valid CONTENT search prepared
     And searches for football

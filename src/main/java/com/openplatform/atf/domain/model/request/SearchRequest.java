@@ -17,11 +17,15 @@ public class SearchRequest {
     @Value("${atf.api.base.uri}")
     private String baseUri;
 
+    @Value("${atf.api.key.name}")
+    private String apiKeyName;
+
     @Value("${atf.api.key}")
     private String apiKey;
 
     @Value("${atf.api.query.parameter}")
     private String queryParameterKey;
+
     private SearchType searchType;
     private Map<String, String> parameters;
     private RequestSpecification requestSpecification;
@@ -56,7 +60,7 @@ public class SearchRequest {
                     given().
                             baseUri(baseUri).
                             basePath(searchType.getEndpoint()).
-                            param("api-key", apiKey).
+                            param(apiKeyName, apiKey).
                             params(parameters);
         }
 

@@ -1,4 +1,4 @@
-package com.openplatform.atf.domain.model;
+package com.openplatform.atf.domain.model.response;
 
 public enum Field {
 

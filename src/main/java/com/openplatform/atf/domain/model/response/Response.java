@@ -12,7 +12,7 @@ public class Response {
     private Integer currentPage;
     private Integer pages;
     private String orderBy;
-    private List<Result> results = null;
+    private List<Result> results;
 
     public String getStatus() {
         return status;
@@ -85,5 +85,4 @@ public class Response {
     public void setResults(List<Result> results) {
         this.results = results;
     }
-
 }
