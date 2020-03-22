@@ -42,6 +42,10 @@ public class SearchRequest {
         this.parameters.put(queryParameterKey, queryParameter);
     }
 
+    public String getQueryParameter() {
+        return parameters.get(queryParameterKey);
+    }
+
     public void setApiKey(String apiKey) {
         this.apiKey = apiKey;
     }

@@ -14,6 +14,7 @@ public class Result {
     private String apiUrl;
     private Boolean isHosted;
     private List<Edition> editions = null;
+    private Fields fields;
 
     public String getId() {
         return id;
@@ -85,5 +86,29 @@ public class Result {
 
     public void setIsHosted(Boolean isHosted) {
         this.isHosted = isHosted;
+    }
+
+    public Boolean getHosted() {
+        return isHosted;
+    }
+
+    public void setHosted(Boolean hosted) {
+        isHosted = hosted;
+    }
+
+    public List<Edition> getEditions() {
+        return editions;
+    }
+
+    public void setEditions(List<Edition> editions) {
+        this.editions = editions;
+    }
+
+    public Fields getFields() {
+        return fields;
+    }
+
+    public void setFields(Fields fields) {
+        this.fields = fields;
     }
 }

@@ -17,9 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
+import static com.openplatform.atf.domain.model.Field.BODY_TEXT;
 import static com.openplatform.atf.domain.model.Field.STATUS;
 import static com.openplatform.atf.domain.model.request.Status.OK;
 import static com.openplatform.atf.validator.Validator.check;
+import static com.openplatform.atf.validator.Validator.checkContent;
 import static org.hamcrest.Matchers.is;
 
 
@@ -60,6 +62,11 @@ public class SearchContentStepDefs {
     @Then("^(.*) receives a valid response$")
     public void receivesAValidResponse(String actor) {
         check(searchResponse, STATUS, is(OK.getValue()));
+    }
+
+    @Then("^(.*) receives a response with correct content$")
+    public void receivesAResponseWithCorrectContent(String actor) {
+        checkContent(searchRequest, searchResponse, BODY_TEXT);
     }
 
     @And("^searches for (.*)$")

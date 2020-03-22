@@ -2,7 +2,8 @@ package com.openplatform.atf.domain.model;
 
 public enum Field {
 
-     STATUS("status", "response.status");
+     STATUS("status", "response.status"),
+     BODY_TEXT("bodyText", "response.results.fields.bodyText");
 
      private String name;
      private String jsonPath;

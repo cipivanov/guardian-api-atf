@@ -2,11 +2,16 @@ package com.openplatform.atf.validator;
 
 
 import com.openplatform.atf.domain.model.Field;
+import com.openplatform.atf.domain.model.request.SearchRequest;
 import com.openplatform.atf.domain.model.response.SearchResponse;
+import com.openplatform.atf.evaluator.JaninoEvaluator;
+import com.openplatform.atf.utils.QueryUtils;
 import io.restassured.response.Response;
 import org.hamcrest.Matcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 public class Validator {
 
@@ -29,5 +34,16 @@ public class Validator {
         }
         LOGGER.info("-- OK -- <[{}]> field expected value {} and was \"{}\"",
                 fieldName, condition, actualValue);
+    }
+
+    public static void checkContent(SearchRequest searchRequest, SearchResponse searchResponse, Field field) {
+        Response response = searchResponse.getResponse();
+        String fieldName = field.getName();
+        String fieldJsonPath = field.getJsonPath();
+        List<String> actualValues = response.then().extract().body().path(fieldJsonPath);
+        String query = QueryUtils.transform(searchRequest.getQueryParameter());
+        for (String actualValue : actualValues) {
+            LOGGER.info(actualValue + " -------- " + query + " --------- " + new JaninoEvaluator().evaluateContent(query, actualValue));
+        }
     }
 }
