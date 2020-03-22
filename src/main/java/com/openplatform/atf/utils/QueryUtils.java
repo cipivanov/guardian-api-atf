@@ -1,12 +1,14 @@
 package com.openplatform.atf.utils;
 
 import com.openplatform.atf.domain.model.QueryOperator;
+import cucumber.api.java.hu.De;
 
 import java.util.List;
 
 import static com.openplatform.atf.utils.RegexUtils.extractQueryKeywords;
 import static com.openplatform.atf.utils.StringUtils.*;
 
+@Deprecated
 public final class QueryUtils {
 
     private QueryUtils() {

@@ -8,7 +8,6 @@ public enum QueryOperator {
     AND("AND", "&&"),
     OR("OR", "||");
 
-
     private String value;
     private String javaEquivalent;
 

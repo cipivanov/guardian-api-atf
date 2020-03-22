@@ -17,13 +17,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Map;
 
-import static com.openplatform.atf.domain.model.Field.BODY_TEXT;
 import static com.openplatform.atf.domain.model.Field.STATUS;
 import static com.openplatform.atf.domain.model.request.Status.OK;
-import static com.openplatform.atf.validator.Validator.check;
-import static com.openplatform.atf.validator.Validator.checkContent;
+import static com.openplatform.atf.evaluator.EvaluationType.CONTAINS;
+import static com.openplatform.atf.evaluator.EvaluationType.EQUALS;
+import static com.openplatform.atf.validator.Validator.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-
 
 public class SearchContentStepDefs {
 
@@ -48,7 +48,6 @@ public class SearchContentStepDefs {
         LOGGER.info("Stopped running feature");
     }
 
-
     @Given("^a (.*) has a valid (CONTENT|SECTIONS) search prepared$")
     public void clientHasAValidSearchPrepared(String actor, String searchType) {
         searchRequest.setSearchType(SearchType.valueOf(searchType));
@@ -61,12 +60,13 @@ public class SearchContentStepDefs {
 
     @Then("^(.*) receives a valid response$")
     public void receivesAValidResponse(String actor) {
-        check(searchResponse, STATUS, is(OK.getValue()));
+        assertThat(check(searchResponse, STATUS, is(OK.getValue())), is(true));
     }
 
-    @Then("^(.*) receives a response with correct content$")
-    public void receivesAResponseWithCorrectContent(String actor) {
-        checkContent(searchRequest, searchResponse, BODY_TEXT);
+    @Deprecated
+    @Then("^(.*) receives a response with expected content$")
+    public void receivesAResponseWithExprectedContentAlternative(String actor) {
+        assertThat(checkContentOf(searchResponse, CONTAINS, searchRequest.getQuery()), is(true));
     }
 
     @And("^searches for (.*)$")
@@ -77,5 +77,10 @@ public class SearchContentStepDefs {
     @And("^filters by$")
     public void filtersBy(Map<String, String> filters) {
         searchRequest.setFilters(filters);
+    }
+
+    @And("^(.*) receives a response with expected section$")
+    public void clientReceivesAResponseWithExpectedSection(String actor) {
+        assertThat(checkSectionOf(searchResponse, EQUALS, searchRequest.getQuery()), is(true));
     }
 }

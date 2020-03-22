@@ -3,7 +3,8 @@ package com.openplatform.atf.evaluator;
 import org.codehaus.commons.compiler.CompilerFactoryFactory;
 import org.codehaus.commons.compiler.IExpressionEvaluator;
 
-public class JaninoEvaluator {
+@Deprecated
+public class Evaluator {
 
     public boolean evaluateContent(String queryExpression, String content) {
         try {

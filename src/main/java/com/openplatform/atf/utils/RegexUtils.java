@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Deprecated
 public final class RegexUtils {
 
     private final static String QUERY_KEYWORD_PATTERN = "\\w+";

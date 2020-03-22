@@ -42,7 +42,7 @@ public class SearchRequest {
         this.parameters.put(queryParameterKey, queryParameter);
     }
 
-    public String getQueryParameter() {
+    public String getQuery() {
         return parameters.get(queryParameterKey);
     }
 

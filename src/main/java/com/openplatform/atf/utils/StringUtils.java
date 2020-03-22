@@ -2,6 +2,7 @@ package com.openplatform.atf.utils;
 
 import java.util.List;
 
+@Deprecated
 public final class StringUtils {
 
     private final static String QUERY_KEYWORD_REGEX = "(\\w+)";
@@ -23,6 +24,6 @@ public final class StringUtils {
     }
 
     public static String substituteDefaultOperatorsIfPresent(final String queryExpression) {
-        return queryExpression.replaceAll("\\)(\\s+)context", ") || content");
+        return queryExpression.replaceAll("\\)(\\s+)content", ") || content");
     }
 }
