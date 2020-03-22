@@ -10,4 +10,6 @@
 
     <context:component-scan base-package="com.openplatform.atf"/>
 
+    <context:property-placeholder location="classpath:atf.properties"/>
+
 </beans>
